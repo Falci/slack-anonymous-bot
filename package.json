@@ -1,0 +1,32 @@
+{
+  "name": "slack-anon",
+  "version": "1.0.0",
+  "description": "Slack bot that echoes messages to channel redacting the user",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "gulp build",
+    "start": "node ./bin/www",
+    "postinstall": "typings install"
+  },
+  "keywords": [],
+  "author": "Fernando Falci <fernando@falci.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-typescript": "^3.1.4",
+    "run-sequence": "^1.2.2",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "@types/express": "^4.0.35",
+    "body-parser": "^1.17.2",
+    "easy-log": "^1.0.0",
+    "es6-shim": "^0.35.2",
+    "express": "^4.14.0",
+    "multer": "^1.2.1",
+    "reflect-metadata": "^0.1.9",
+    "request": "^2.81.0",
+    "routing-controllers": "^0.6.8"
+  }
+}

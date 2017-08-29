@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "body-parser": "registry:npm/body-parser#1.15.2+20161116154925",
+    "express": "registry:dt/express#4.0.0+20170118060322",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20161228005052",
+    "mime": "registry:dt/mime#0.0.0+20160428043022",
+    "request": "registry:npm/request#2.69.0+20160428223725",
+    "serve-static": "registry:dt/serve-static#1.7.1+20161128184045"
+  }
+}
