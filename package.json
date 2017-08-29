@@ -27,6 +27,7 @@
     "multer": "^1.2.1",
     "reflect-metadata": "^0.1.9",
     "request": "^2.81.0",
-    "routing-controllers": "^0.6.8"
+    "routing-controllers": "^0.6.8",
+    "typings": "^2.1.1"
   }
 }
