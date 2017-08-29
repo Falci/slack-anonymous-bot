@@ -29,7 +29,7 @@ export class SlackController {
     }
 
     @Get('')
-    get(@Body() m:any): any {
-      return m;
+    get(): any {
+      return 'Olar';
     }
 }
