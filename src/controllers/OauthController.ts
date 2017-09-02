@@ -10,8 +10,8 @@ const CLIENT_ID = process.env.CLIENT_ID,
 export class OauthController {
 
   @Get('/callback')
-  @Redirect("/?:status")
-  async get(@QueryParam('code') code:string): Promise<any> {
+  @Redirect("/?")
+  async get(@QueryParam('code') code:string): Promise<string> {
     const options = {
       method: 'POST',
       headers: {
@@ -27,10 +27,10 @@ export class OauthController {
     return new Promise<any>((resolve, reject) => {
       request.post(ACCESS_URL, options, (error: any, httpResponse: IncomingMessage, body: any) =>{
         if (error || httpResponse.statusCode >= 300) {
-          return reject({status: 'error'});
+          return reject('error');
         }
 
-        resolve({status: 'success'});
+        resolve('success');
       });
     });
 
