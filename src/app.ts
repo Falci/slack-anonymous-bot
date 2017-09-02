@@ -3,6 +3,7 @@
 import 'reflect-metadata';
 import * as express from 'express';
 import { urlencoded } from 'body-parser';
+import * as dexter from 'morgan';
 import { Application } from 'express';
 import { useExpressServer } from 'routing-controllers';
 
@@ -20,6 +21,9 @@ class Server {
   }
 
   private config() {
+    this.app
+      .use(dexter('dev'));
+
     this.app.
       use(express.static(`${__dirname}/public`));
 
