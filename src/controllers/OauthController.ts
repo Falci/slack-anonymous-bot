@@ -10,7 +10,7 @@ const CLIENT_ID = process.env.CLIENT_ID,
 export class OauthController {
 
   @Get('/callback')
-  get(@QueryParam('code') code:string, @Res() res: any): void {
+  async get(@QueryParam('code') code:string, @Res() res: any) {
     const options = {
       method: 'POST',
       headers: {
