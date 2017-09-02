@@ -6,7 +6,8 @@
   "scripts": {
     "build": "gulp build",
     "start": "node ./bin/www",
-    "postinstall": "typings install && npm run build"
+    "postinstall": "typings install",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "Fernando Falci <fernando@falci.me>",
