@@ -20,6 +20,12 @@ class Server {
   }
 
   private config() {
+    this.app.
+      use(express.static(`${__dirname}/public`));
+
+    this.app
+      .use('/', (req, res) => res.sendfile(`${__dirname}/public/index.html`))
+
     this.app
       .use(urlencoded({ extended: false }));
 

@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto:100");
+body {
+    text-align: center;
+    background-color: #F0F0F0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+body a {
+    text-decoration: none;
+}
+
+.alert {
+    padding: 8px;
+    font-size: 3vw;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    font-weight: 600;
+    color: #EEE;
+}
+.alert.success {
+    background-color: #A5D6A7;
+}
+.alert.error {
+    background-color: #EF9A9A;
+}
+
+header {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 3vw;
+}
+header h1 {
+    display: inline-block;
+}
+header .slack-logo {
+    display: inline-block;
+    background-image: url(/images/slack_logo.png);
+    background-size: 200%;
+    background-position: 50% 50%;
+    position: relative;
+    top: 3vw;
+    width: 10vw;
+    height: 10vw;
+    margin-right: 10px;
+}
+
+.black {
+    background-color: #111;
+    color: #EEE;
+    margin-bottom: 18vw;
+}
+@media (min-width: 960px) {
+    .black {
+        margin-bottom: 170px;
+    }
+}
+
+.margin {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.main {
+    padding: 20px 20px 45vw 20px;
+}
+@media (min-width: 960px) {
+    .main {
+        padding-bottom: 430px;
+    }
+}
+.main h2 {
+    font-size: 3.75vw;
+}
+.main span {
+    font-weight: 100;
+    display: block;
+}
+.main .button a {
+    margin: 30px;
+    display: inline-block;
+}
+
+.block .title {
+    overflow-x: hidden;
+}
+.block .title h3 {
+    display: inline-block;
+    background-color: #F0F0F0;
+    z-index: 1;
+    position: relative;
+    padding: 0 20px;
+}
+.block .title:before, .block .title:after {
+    content: ' ';
+    background-color: #777;
+    position: relative;
+    left: 50%;
+    top: -30.5px;
+    display: block;
+    width: 100%;
+    height: 1px;
+}
+.block .title:before {
+    background-color: #777;
+    left: -50%;
+    top: 30.5px;
+}
+
+.computer-wrapper {
+    float: left;
+    width: 100%;
+}
+
+.computer {
+    position: relative;
+    background-image: url(/images/macbook.png);
+    background-size: 100% 100%;
+    height: 60vw;
+    max-height: 576px;
+}
+.computer .screen {
+    width: calc(76.5vw - 31px);
+    height: 80.1%;
+    margin: 0 auto;
+    position: relative;
+    top: 3vw;
+    left: 1px;
+    overflow: scroll;
+    background-color: #FFF;
+}
+@media (min-width: 960px) {
+    .computer .screen {
+        top: 31px;
+        left: -1px;
+        width: 707px;
+    }
+}
+.computer .screen img {
+    width: 100%;
+}
+
+footer .margin {
+    border-top: 1px solid #777;
+    display: flex;
+    font-size: 12px;
+    padding: 10px;
+}
+footer .margin a {
+    color: black;
+}
+footer .margin > div:nth-child(2) {
+    flex-grow: 1;
+}

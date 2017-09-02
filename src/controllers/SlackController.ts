@@ -1,6 +1,5 @@
-import {Controller, Body, Get, Post} from 'routing-controllers';
+import {Controller, Body, Post} from 'routing-controllers';
 import * as request from 'request';
-import {IncomingMessage as IM} from 'http';
 import {IncomingMessage} from '../models/incoming.model';
 import {OutcomingMessage, ResponseType} from '../models/outcoming.model';
 
@@ -28,8 +27,4 @@ export class SlackController {
         return '';
     }
 
-    @Get('')
-    get(): any {
-      return 'Olar';
-    }
 }

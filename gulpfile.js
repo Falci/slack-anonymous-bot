@@ -12,12 +12,17 @@ gulp.task('watch', () => {
   });
 });
 
-gulp.task('build', () => {
+gulp.task('build', ['static'], () => {
   const tsProject = ts.createProject('./tsconfig.json');
 
   return gulp.src('src/**/*.ts')
     .pipe(tsProject())
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('static', () => {
+  return gulp.src(['src/public/**'])
+    .pipe(gulp.dest('dist/public'));
 });
 
 gulp.task('nodemon', () => {
