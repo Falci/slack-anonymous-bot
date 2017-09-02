@@ -28,14 +28,14 @@ class Server {
       use(express.static(`${__dirname}/public`));
 
     this.app
-      .use('/', (req, res) => res.sendfile(`${__dirname}/public/index.html`))
-
-    this.app
       .use(urlencoded({ extended: false }));
 
     useExpressServer(this.app, {
       controllers: [__dirname + '/controllers/*.js']
     });
+
+    this.app
+      .use('/', (req, res) => res.sendfile(`${__dirname}/public/index.html`));
   }
 }
 
