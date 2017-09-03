@@ -28,6 +28,7 @@ body a {
 header {
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 3vw;
+    cursor: pointer;
 }
 header h1 {
     display: inline-block;
@@ -89,6 +90,7 @@ header .slack-logo {
     z-index: 1;
     position: relative;
     padding: 0 20px;
+    font-weight: bold;
 }
 .block .title:before, .block .title:after {
     content: ' ';
@@ -104,6 +106,15 @@ header .slack-logo {
     background-color: #777;
     left: -50%;
     top: 30.5px;
+}
+.block .text {
+    text-align: left;
+    margin: 10px;
+}
+.block .text h4 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: -15px;
 }
 
 .computer-wrapper {
