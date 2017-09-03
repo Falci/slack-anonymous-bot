@@ -1,4 +1,5 @@
-import {Controller, Redirect, QueryParam, Get} from 'routing-controllers';
+import {Controller, Res, QueryParam, Get} from 'routing-controllers';
+import * as express from 'express';
 import * as request from 'request';
 import {IncomingMessage} from 'http';
 
@@ -10,7 +11,7 @@ const CLIENT_ID = process.env.CLIENT_ID,
 export class OauthController {
 
   @Get('/callback')
-  async get(@QueryParam('code') code:string): Promise<string> {
+  async get(@QueryParam('code') code:string, @Res() res: express.Response): Promise<void> {
     const options = {
       method: 'POST',
       headers: {
@@ -23,13 +24,15 @@ export class OauthController {
       }
     };
 
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
       request.post(ACCESS_URL, options, (error: any, httpResponse: IncomingMessage, body: any) =>{
         if (error || httpResponse.statusCode >= 300) {
-          return reject('/?error');
+          res.redirect('/?error');
+          return resolve();
         }
 
-        resolve('/?success');
+        res.redirect('/?success');
+        resolve();
       });
     });
 
