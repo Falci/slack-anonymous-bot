@@ -21,7 +21,7 @@ export class SlackController {
         }
 
         const options: request.Options = {
-            url: 'https://requestb.in/temqchte', //message.response_url,
+            url: message.response_url,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
