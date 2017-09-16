@@ -29,11 +29,12 @@ export class SlackController {
             form: OutcomingMessage.inChannel(message.text).json()
         };
 
+        console.log(options.url);
         console.log(options.form);
 
-        return new Promise<string>((resolve, reject) => {
+        return new Promise<string>((resolve) => {
             request.post(message.response_url, options, () => resolve(''));
-        })
+        });
     }
 
 }
