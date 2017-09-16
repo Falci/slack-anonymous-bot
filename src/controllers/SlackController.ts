@@ -1,6 +1,6 @@
 import {Controller, Body, Post} from 'routing-controllers';
 import * as http from 'http';
-import * as URL from 'url';
+import * as url from 'url';
 import {IncomingMessage} from '../models/incoming.model';
 import {OutcomingMessage} from '../models/outcoming.model';
 
@@ -22,7 +22,7 @@ export class SlackController {
 
         const u = message.text.startsWith('debug') ? 'https://requestb.in/18x7gql1' : message.response_url
 
-        const options = Object.assign(new URL(u), {
+        const options = Object.assign(url.parse(u), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
