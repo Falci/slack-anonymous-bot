@@ -20,9 +20,7 @@ export class SlackController {
               '/anon Hello!';
         }
 
-        const u = message.text.startsWith('debug') ? 'https://requestb.in/18x7gql1' : message.response_url
-
-        const options = Object.assign(url.parse(u), {
+        const options = Object.assign(url.parse(message.response_url), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +29,7 @@ export class SlackController {
 
         return new Promise<string>((resolve) => {
 
-            const request = https.request(options, (res) => res.on('end', () => resolve('')));
+            const request = https.request(options, (res) => resolve(''));
             request.write(OutcomingMessage.inChannel(message.text).json());
             request.end();
 
