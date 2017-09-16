@@ -1,16 +1,14 @@
 import {Controller, Body, Post} from 'routing-controllers';
 import * as request from 'request';
 import {IncomingMessage} from '../models/incoming.model';
-import {OutcomingMessage, ResponseType} from '../models/outcoming.model';
+import {OutcomingMessage} from '../models/outcoming.model';
 import {unescape} from "querystring";
 
 @Controller('/')
 export class SlackController {
 
     @Post('')
-    post(@Body() message: IncomingMessage): any {
-        console.log(message.text);
-
+    async post(@Body() message: IncomingMessage): Promise<string> {
         if(message.channel_name === 'directmessage') {
             return 'I can\'t be anonymous here!';
         }
@@ -28,12 +26,14 @@ export class SlackController {
             headers: {
                 'Content-Type': 'application/json'
             },
-            form: OutcomingMessage.inChannel(unescape(message.text)).json()
+            form: OutcomingMessage.inChannel(message.text).json()
         };
 
-        request.post(message.response_url, options);
+        console.log(options.form);
 
-        return '';
+        return new Promise<string>((resolve, reject) => {
+            request.post(message.response_url, options, () => resolve(''));
+        })
     }
 
 }
