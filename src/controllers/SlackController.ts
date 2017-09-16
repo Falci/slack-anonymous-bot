@@ -1,5 +1,5 @@
 import {Controller, Body, Post} from 'routing-controllers';
-import * as http from 'http';
+import * as https from 'https';
 import * as url from 'url';
 import {IncomingMessage} from '../models/incoming.model';
 import {OutcomingMessage} from '../models/outcoming.model';
@@ -31,7 +31,7 @@ export class SlackController {
 
         return new Promise<string>((resolve) => {
 
-            const request = http.request(options, (res) => res.on('end', () => resolve('')));
+            const request = https.request(options, (res) => res.on('end', () => resolve('')));
             request.write(OutcomingMessage.inChannel(message.text).json());
             request.end();
 
