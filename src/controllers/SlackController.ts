@@ -9,6 +9,7 @@ export class SlackController {
 
     @Post('')
     post(@Body() message: IncomingMessage): any {
+        console.log(message.text);
 
         if(message.channel_name === 'directmessage') {
             return 'I can\'t be anonymous here!';
