@@ -8,7 +8,7 @@ import {OutcomingMessage} from '../models/outcoming.model';
 export class SlackController {
 
     @Post('')
-    async post(@Body() message: IncomingMessage): Promise<string> {
+    post(@Body() message: IncomingMessage): string {
         if(message.channel_name === 'directmessage') {
             return 'I can\'t be anonymous here!';
         }
@@ -27,13 +27,11 @@ export class SlackController {
             }
         });
 
-        return new Promise<string>((resolve) => {
+        const request = https.request(options);
+        request.write(OutcomingMessage.inChannel(message.text).json());
+        request.end();
 
-            const request = https.request(options, (res) => resolve(''));
-            request.write(OutcomingMessage.inChannel(message.text).json());
-            request.end();
-
-        });
+        return '';
     }
 
 }
