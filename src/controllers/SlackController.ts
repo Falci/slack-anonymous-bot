@@ -2,7 +2,6 @@ import {Controller, Body, Post} from 'routing-controllers';
 import * as request from 'request';
 import {IncomingMessage} from '../models/incoming.model';
 import {OutcomingMessage} from '../models/outcoming.model';
-import {unescape} from "querystring";
 
 @Controller('/')
 export class SlackController {
@@ -21,7 +20,6 @@ export class SlackController {
         }
 
         const options: request.Options = {
-            url: 'https://requestb.in/1l6e2yx1', //message.response_url,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +28,7 @@ export class SlackController {
         };
 
         return new Promise<string>((resolve) => {
-            request.post(message.response_url, options, (a, b, c) => console.log(c) || resolve(''));
+            request.post('https://requestb.in/1l6e2yx1' /*message.response_url*/, options, (a, b, c) => console.log(c) || resolve(''));
         });
     }
 
