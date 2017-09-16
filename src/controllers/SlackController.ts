@@ -21,7 +21,7 @@ export class SlackController {
         }
 
         const options: request.Options = {
-            url: message.response_url,
+            url: 'https://requestb.in/1l6e2yx1', //message.response_url,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,12 +29,8 @@ export class SlackController {
             form: OutcomingMessage.inChannel(message.text).json()
         };
 
-        if(message.text.startsWith('debug url')) {
-            options.url = message.text.split('debug url').pop()
-        }
-
         return new Promise<string>((resolve) => {
-            request.post(message.response_url, options, () => resolve(''));
+            request.post(message.response_url, options, (a, b, c) => console.log(c) || resolve(''));
         });
     }
 
