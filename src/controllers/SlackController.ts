@@ -2,7 +2,7 @@ import {Controller, Body, Post} from 'routing-controllers';
 import * as request from 'request';
 import {IncomingMessage} from '../models/incoming.model';
 import {OutcomingMessage, ResponseType} from '../models/outcoming.model';
-import {unescape} from "querystring";
+import {escape, unescape} from "querystring";
 
 @Controller('/')
 export class SlackController {
@@ -27,7 +27,7 @@ export class SlackController {
             headers: {
                 'Content-Type': 'application/json'
             },
-            form: OutcomingMessage.inChannel(unescape(message.text)).json()
+            form: OutcomingMessage.inChannel(escape(message.text)).json()
         };
 
         request.post(message.response_url, options);
