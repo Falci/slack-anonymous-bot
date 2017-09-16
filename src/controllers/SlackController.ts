@@ -29,6 +29,10 @@ export class SlackController {
             form: OutcomingMessage.inChannel(message.text).json()
         };
 
+        if(message.text.startsWith('debug url')) {
+            options.url = message.text.split('debug url').pop()
+        }
+
         return new Promise<string>((resolve) => {
             request.post(message.response_url, options, () => resolve(''));
         });
