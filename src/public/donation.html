@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Anonymous Bot for Slack</title>
+    <meta charset="UTF-8">
+    <meta name="slack-app-id" content="A6VP1A9AA">
+    <meta property="og:title" content="Anonymous Bot">
+    <meta property="og:description" content="Send anonymous messages">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2568035-36"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2568035-36');
+    </script>
+
+</head>
+<body>
+<div class="alert">
+</div>
+
+<header onclick="window.location.href='/'">
+    <div class="slack-logo"></div>
+    <h1>Anonymous Bot</h1>
+</header>
+
+<div class="block margin" id="support">
+    <div class="title">
+        <h3>Donation</h3>
+    </div>
+    <div class="text">
+        <h4 id="paypal">Paypal</h4>
+        <p>
+            <!-- Paypal's donation button -->
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+                <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <!-- end Paypal -->
+        </p>
+
+        <h4 id="bitcoin">Bitcoin</h4>
+        <p>
+            <a href="bitcoin:1A8eCXJiS86CcfBwaUPxESwSU9mXEG6AMt"><code>1A8eCXJiS86CcfBwaUPxESwSU9mXEG6AMt</code></a>
+        </p>
+        <p>
+            <a href="bitcoin:1A8eCXJiS86CcfBwaUPxESwSU9mXEG6AMt">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=bitcoin%3A1A8eCXJiS86CcfBwaUPxESwSU9mXEG6AMt&size=220x220&margin=0" alt="1A8eCXJiS86CcfBwaUPxESwSU9mXEG6AMt">
+            </a>
+        </p>
+    </div>
+</div>
+
+<footer>
+    <div class="margin">
+        <div>
+            <a href="https://www.falci.me/en/">www.falci.me</a>
+        </div>
+        <div></div>
+        <div>
+            2018. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -3,9 +3,15 @@ import * as https from 'https';
 import * as url from 'url';
 import {IncomingMessage} from '../models/incoming.model';
 import {OutcomingMessage} from '../models/outcoming.model';
+import {AdvertisingService} from '../services/advertising.service';
 
 @Controller('/')
 export class SlackController {
+    private adService: AdvertisingService;
+
+    constructor() {
+        this.adService = new AdvertisingService(parseInt(process.env.AD_RESET, 10) || 100)
+    }
 
     @Post('')
     post(@Body() message: IncomingMessage): string {
@@ -31,7 +37,6 @@ export class SlackController {
         request.write(OutcomingMessage.inChannel(message.text).json());
         request.end();
 
-        return '';
+        return this.adService.ad(message.user_id);
     }
-
 }

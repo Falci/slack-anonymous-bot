@@ -76,9 +76,17 @@ header .slack-logo {
     font-weight: 100;
     display: block;
 }
-.main .button a {
+
+.main .button {
     margin: 30px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.main .button .donate img {
+    width: 120px;
+    margin-top: 20px;
 }
 
 .block .title {
