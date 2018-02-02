@@ -2,8 +2,9 @@
 export class AdvertisingService {
   private messageCount: number;
   private cache: string[];
+  private resetCount = parseInt(process.env.AD_RESET, 10) || 100;
 
-  constructor(private resetCount: number) {
+  constructor() {
     this.clearCache();
   }
 

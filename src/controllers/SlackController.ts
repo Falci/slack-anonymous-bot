@@ -10,7 +10,7 @@ export class SlackController {
     private adService: AdvertisingService;
 
     constructor() {
-        this.adService = new AdvertisingService(parseInt(process.env.AD_RESET, 10) || 100)
+        this.adService = new AdvertisingService()
     }
 
     @Post('')
